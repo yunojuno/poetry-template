@@ -1,12 +1,21 @@
 [tool.poetry]
 name = "poetry-template"
 version = "0.1.0"
-description = ""
+description = "Project template for Django app, using Poetry."
 authors = ["YunoJuno <code@yunojuno.com>"]
+maintainers = ["YunoJuno <code@yunojuno.com>"]
+license = "MIT"
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django :: 2.2",
+    "Framework :: Django :: 3.0",
+    "Operating System :: OS Independent",
+]
+url = "https://github.com/yunojuno/poetry-template"
 
 [tool.poetry.dependencies]
-python = "^3.7"
-django = "^3.0"
+python = "^3.6"
+django = "^2.2 || ^3.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
