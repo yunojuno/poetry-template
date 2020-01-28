@@ -2,19 +2,27 @@
 name = "my-app"
 version = "0.1.0"
 description = "Project template for Django app, using Poetry."
+license = "MIT"
 authors = ["YunoJuno <code@yunojuno.com>"]
 maintainers = ["YunoJuno <code@yunojuno.com>"]
-license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/yunojuno/poetry-template"
+repository = "https://github.com/yunojuno/poetry-template"
+documentation = "https://github.com/yunojuno/poetry-template"
 classifiers = [
     "Environment :: Web Environment",
+    "Framework :: Django",
     "Framework :: Django :: 2.2",
     "Framework :: Django :: 3.0",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
 ]
-# url = "https://github.com/yunojuno/poetry-template"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 django = "^2.2 || ^3.0"
 
 [tool.poetry.dev-dependencies]
@@ -23,7 +31,6 @@ pytest-cov = "^2.8"
 pytest-django = "^3.7"
 coverage = "^4.5"
 pylint = "^2.4"
-pylint-django = "^2.0"
 flake8 = "^3.7"
 flake8-bandit = "^2.1"
 flake8-docstrings = "^1.5"
