@@ -48,6 +48,7 @@ TEMPLATES = [
     }
 ]
 
+AUTH_USER_MODEL = "tests.User"
 
 STATIC_URL = "/static/"
 
