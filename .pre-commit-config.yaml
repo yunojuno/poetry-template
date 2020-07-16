@@ -5,13 +5,14 @@ repos:
       rev: v5.0.9
       hooks:
           - id: isort
+          - language_version: python3.8
 
     # python code formatting - will amend files
     - repo: https://github.com/ambv/black
       rev: 19.10b0
       hooks:
           - id: black
-            language_version: python3.7
+          - language_version: python3.8
 
     # PEP8 linting, with added Django goodness, and custom YJ plugin
     - repo: https://github.com/pre-commit/mirrors-pylint
@@ -20,6 +21,7 @@ repos:
           - id: pylint
             args:
                 - --rcfile=.pylintrc
+          - language_version: python3.8
 
     # Flake8 includes pyflakes, pycodestyle, mccabe, pydocstyle, bandit
     - repo: https://gitlab.com/pycqa/flake8
@@ -28,8 +30,9 @@ repos:
           - id: flake8
             additional_dependencies: ["flake8-docstrings", "flake8-bandit"]
             exclude: tests|migrations
+          - language_version: python3.8
 
-            # python static type checking
+    # python static type checking
     - repo: https://github.com/pre-commit/mirrors-mypy
       rev: v0.782
       hooks:
@@ -38,3 +41,5 @@ repos:
                 - --ignore-missing-imports
                 # means we only get error on the current file
                 - --follow-imports=silent
+                - --config-file=mypy.ini
+          - language_version: python3.8
