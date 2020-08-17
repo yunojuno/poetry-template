@@ -1,5 +1,5 @@
 from distutils.version import StrictVersion
-from os import path
+from os import path, getenv
 
 import django
 
@@ -20,11 +20,11 @@ except ImportError:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'my_app',
-            'USER': 'postgres',
-            'PASSWORD': 'postgres',
-            'HOST': '127.0.0.1',
-            'PORT': '5432',
+            'NAME': getenv('TEST_DB_NAME', 'postgres'),
+            'USER': getenv('TEST_DB_USER', 'postgres'),
+            'PASSWORD': getenv('TEST_DB_PASSWORD', 'postgres'),
+            'HOST': getenv('TEST_DB_HOST', 'localhost'),
+            'PORT': getenv('TEST_DB_PORT', '5432'),
         }
     }
 
