@@ -17,9 +17,16 @@ try:
         "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "test.db",}
     }
 except ImportError:
-    import dj_database_url
-
-    DATABASES = {"default": dj_database_url.config()}
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'my_app',
+            'USER': 'postgres',
+            'PASSWORD': 'postgres',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
+    }
 
 INSTALLED_APPS = (
     "django.contrib.admin",
