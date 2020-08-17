@@ -10,7 +10,16 @@ TEMPLATE_DEBUG = True
 USE_TZ = True
 USE_L10N = True
 
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "test.db"}}
+try:
+    from django.db.models import JSONField  # noqa: F401
+
+    DATABASES = {
+        "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "test.db",}
+    }
+except ImportError:
+    import dj_database_url
+
+    DATABASES = {"default": dj_database_url.config()}
 
 INSTALLED_APPS = (
     "django.contrib.admin",
