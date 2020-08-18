@@ -1,5 +1,5 @@
 from distutils.version import StrictVersion
-from os import path, getenv
+from os import getenv, path
 
 import django
 
@@ -18,13 +18,13 @@ try:
     }
 except ImportError:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': getenv('TEST_DB_NAME', 'postgres'),
-            'USER': getenv('TEST_DB_USER', 'postgres'),
-            'PASSWORD': getenv('TEST_DB_PASSWORD', 'postgres'),
-            'HOST': getenv('TEST_DB_HOST', 'localhost'),
-            'PORT': getenv('TEST_DB_PORT', '5432'),
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": getenv("TEST_DB_NAME", "postgres"),
+            "USER": getenv("TEST_DB_USER", "postgres"),
+            "PASSWORD": getenv("TEST_DB_PASSWORD", "postgres"),
+            "HOST": getenv("TEST_DB_HOST", "localhost"),
+            "PORT": getenv("TEST_DB_PORT", "5432"),
         }
     }
 
@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "my_app",
-    "tests",
+    "tests.test_app",
 )
 
 MIDDLEWARE = [
@@ -59,12 +59,13 @@ TEMPLATES = [
             "context_processors": [
                 "django.contrib.messages.context_processors.messages",
                 "django.contrib.auth.context_processors.auth",
+                "django.template.context_processors.request",
             ]
         },
     }
 ]
 
-AUTH_USER_MODEL = "tests.User"
+AUTH_USER_MODEL = "test_app.User"
 
 STATIC_URL = "/static/"
 
@@ -92,22 +93,5 @@ LOGGING = {
 }
 
 ROOT_URLCONF = "tests.urls"
-
-###################################################
-# django_coverage overrides
-
-# Specify a list of regular expressions of module paths to exclude
-# from the coverage analysis. Examples are ``'tests$'`` and ``'urls$'``.
-# This setting is optional.
-COVERAGE_MODULE_EXCLUDES = [
-    "tests$",
-    "settings$",
-    "urls$",
-    "locale$",
-    "common.views.test",
-    "__init__",
-    "django",
-    "migrations",
-]
 
 assert DEBUG, "This settings file can only be used with DEBUG=True"
