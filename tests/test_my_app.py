@@ -1,2 +1,2 @@
-def test_foo():
-    assert True
+def test_import():
+    import my_app  # noqa: F401

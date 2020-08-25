@@ -13,9 +13,7 @@ USE_L10N = True
 try:
     from django.db.models import JSONField  # noqa: F401
 
-    DATABASES = {
-        "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "test.db",}
-    }
+    DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "test.db"}}
 except ImportError:
     DATABASES = {
         "default": {
@@ -36,7 +34,6 @@ INSTALLED_APPS = (
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "my_app",
-    "tests.test_app",
 )
 
 MIDDLEWARE = [
@@ -65,8 +62,6 @@ TEMPLATES = [
     }
 ]
 
-AUTH_USER_MODEL = "test_app.User"
-
 STATIC_URL = "/static/"
 
 SECRET_KEY = "secret"
@@ -94,4 +89,5 @@ LOGGING = {
 
 ROOT_URLCONF = "tests.urls"
 
-assert DEBUG, "This settings file can only be used with DEBUG=True"
+if not DEBUG:
+    raise Exception("This settings file can only be used with DEBUG=True")

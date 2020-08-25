@@ -1,13 +1,16 @@
 [flake8]
 max-line-length = 88
 max-complexity = 8
+
 exclude =
   .git,
   .venv,
   .tox,
-  tests
-# http://flake8.pycqa.org/en/2.5.5/warnings.html#warning-error-codes
+  tests,
+  migrations
+
 ignore =
+  # http://flake8.pycqa.org/en/2.5.5/warnings.html#warning-error-codes
   # pydocstyle - docstring conventions (PEP257)
   D1    # [pydocstyle] missing docstring
   D203  # [pydocstyle] 1 blank line required before class docstring
