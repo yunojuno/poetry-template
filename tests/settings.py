@@ -1,5 +1,5 @@
 from distutils.version import StrictVersion
-from os import getenv, path
+from os import path
 
 import django
 
@@ -10,21 +10,7 @@ TEMPLATE_DEBUG = True
 USE_TZ = True
 USE_L10N = True
 
-try:
-    from django.db.models import JSONField  # noqa: F401
-
-    DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "test.db"}}
-except ImportError:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": getenv("TEST_DB_NAME", "postgres"),
-            "USER": getenv("TEST_DB_USER", "postgres"),
-            "PASSWORD": getenv("TEST_DB_PASSWORD", "postgres"),
-            "HOST": getenv("TEST_DB_HOST", "localhost"),
-            "PORT": getenv("TEST_DB_PORT", "5432"),
-        }
-    }
+DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "test.db"}}
 
 INSTALLED_APPS = (
     "django.contrib.admin",
