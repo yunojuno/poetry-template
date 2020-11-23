@@ -15,6 +15,10 @@ jobs:
     strategy:
       matrix:
         python: [3.7, 3.8]
+        django: [2.2, 3.0, 3.1]
+
+    env:
+      TOXENV: ${{ matrix.python }}-${{ matrix.django }}
 
     steps:
       - name: Check out the repository
