@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        toxenv: [fmt, lint, mypy]
+        toxenv: [fmt,lint,mypy]
     env:
       TOXENV: ${{ matrix.toxenv }}
 
@@ -37,8 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [37]
-        django: [22]
+        python: [3.7,3.8]
+        django: [22,30,31,master]
 
     env:
       TOXENV: py${{ matrix.python }}-django${{ matrix.django }}
