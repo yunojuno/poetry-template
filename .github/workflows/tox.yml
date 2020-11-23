@@ -18,7 +18,7 @@ jobs:
         django: [2.2, 3.0, 3.1]
 
     env:
-      TOXENV: ${{ matrix.python }}-${{ matrix.django }}
+      TOXENV: py${{ matrix.python }}-django${{ matrix.django }}
 
     steps:
       - name: Check out the repository
