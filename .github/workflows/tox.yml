@@ -16,7 +16,7 @@ jobs:
       matrix:
         toxenv: [fmt, lint, mypy]
     env:
-      TOXENV: ${{ toxenv }}
+      TOXENV: ${{ matrix.toxenv }}
 
     steps:
       - name: Check out the repository
@@ -33,15 +33,16 @@ jobs:
           tox
 
   test:
-    name: Run tox
+    name: Run tests
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [37, 38]
+        python: [3.7, 3.8]  # used to install python itself
+        pytox:  [37, 38]    # used in tox within '.'
         django: [22, 30, 31]
 
     env:
-      TOXENV: py${{ matrix.python }}-django${{ matrix.django }}
+      TOXENV: py${{ matrix.pytox }}-django${{ matrix.django }}
 
     steps:
       - name: Check out the repository
