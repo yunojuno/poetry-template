@@ -9,6 +9,10 @@ exclude =
   tests,
   migrations
 
+per-file-ignores =
+  tests/*:S101,S105
+  */migrations/*:E501
+
 ignore =
   # http://flake8.pycqa.org/en/2.5.5/warnings.html#warning-error-codes
   # pydocstyle - docstring conventions (PEP257)
