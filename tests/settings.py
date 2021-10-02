@@ -1,9 +1,4 @@
-from distutils.version import StrictVersion
 from os import path
-
-import django
-
-DJANGO_VERSION = StrictVersion(django.get_version())
 
 DEBUG = True
 TEMPLATE_DEBUG = True
@@ -74,6 +69,3 @@ LOGGING = {
 }
 
 ROOT_URLCONF = "tests.urls"
-
-if not DEBUG:
-    raise Exception("This settings file can only be used with DEBUG=True")

@@ -7,12 +7,12 @@ repos:
 
   # python code formatting - will amend files
   - repo: https://github.com/ambv/black
-    rev: 21.8b0
+    rev: 21.9b0
     hooks:
       - id: black
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.25.0
+    rev: v2.29.0
     hooks:
       - id: pyupgrade
 
@@ -33,8 +33,7 @@ repos:
     rev: v0.910
     hooks:
       - id: mypy
-        additional_dependencies:
-          - types-geoip2
+        # additional_dependencies:
         args:
           - --disallow-untyped-defs
           - --disallow-incomplete-defs
@@ -42,4 +41,4 @@ repos:
           - --no-implicit-optional
           - --ignore-missing-imports
           - --follow-imports=silent
-        exclude: ^tests
+        # exclude: ^tests
