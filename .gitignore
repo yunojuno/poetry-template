@@ -6,4 +6,5 @@
 .venv
 node_modules
 poetry.lock
+staticfiles
 test.db
