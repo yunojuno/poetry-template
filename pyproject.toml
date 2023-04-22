@@ -16,6 +16,7 @@ classifiers = [
     "Framework :: Django :: 3.2",
     "Framework :: Django :: 4.0",
     "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3 :: Only",
@@ -33,19 +34,13 @@ django = "^3.2 || ^4.0"
 [tool.poetry.dev-dependencies]
 black = "*"
 coverage = "*"
-flake8 = "^3.9"
-flake8-bandit = "*"
-flake8-blind-except = "*"
-flake8-docstrings = "*"
-flake8-logging-format = "*"
-flake8-print = "*"
 freezegun = "*"
-isort = "*"
 mypy = "*"
 pre-commit = "*"
 pytest = "*"
 pytest-cov = "*"
 pytest-django = "*"
+ruff = "*"
 tox = "*"
 
 [build-system]
