@@ -41,7 +41,11 @@ jobs:
         django: ["32", "40", "41", "42", "main"]
         exclude:
           - python: "3.8"
+            django: "50"
+          - python: "3.8"
             django: "main"
+          - python: "3.9"
+            django: "50"
           - python: "3.9"
             django: "main"
 
