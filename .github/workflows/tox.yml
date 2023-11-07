@@ -32,6 +32,29 @@ jobs:
           pip install tox
           tox
 
+  checks:
+    name: Run Django checks
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        toxenv: ["django-checks"]
+    env:
+      TOXENV: ${{ matrix.toxenv }}
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python (3.11)
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install and run tox
+        run: |
+          pip install tox
+          tox
+
   test:
     name: Run tests
     runs-on: ubuntu-latest
